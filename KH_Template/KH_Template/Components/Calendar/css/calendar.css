@@ -1,0 +1,999 @@
+﻿/* Injaz Custom Calender */
+/* Calender */
+.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next {position: absolute; top: 2px;width: 1.8em;}
+.ui-datepicker .ui-datepicker-prev span, .ui-datepicker .ui-datepicker-next span { display: block;left: 50%;margin-left: -8px; margin-top: -12px;position: absolute;top: 50%;}
+
+.ui-datepicker .ui-datepicker-next {left: 15px;}
+.ui-datepicker .ui-datepicker-prev {right: 20px;}
+.ui-datepicker .ui-datepicker-title {text-align: center;}
+.ui-datepicker .ui-datepicker-header {margin-left:auto; margin-right:auto; }
+.ui-datepicker-current-day .ui-datepicker-today .ui-state-default{color:#fff!important;}
+.ui-datepicker-calendar {border-bottom:2px solid #0d81b4;margin: 0 auto;}
+.IN_EventTypes{background:#d0dae2;padding:5px;min-height:80px;border-top:1px #c7c7c7 solid}
+.datepick thead .datepick-title-row th{border-top:1px #c6c6c6 solid;border-bottom:1px #c6c6c6 solid}
+.datepick-prev,.datepick-current{float:left}
+.datepick-current{margin-left:30px}
+.datepick-next{float:right}
+.datepick-close,.datepick-clear{display:none}
+#datepick-div{padding:5px;border:1px #3a6087 solid;width:183px}
+#datepick-div select{display:none}
+.hasDatepicker{text-align:center;margin-top:5px;padding-top:3px}
+.ui-datepicker{margin:auto!important;}
+.ui-datepicker-header{  position: relative;background:none!important;border:0!important;}
+.ui-datepicker-title{background:#53b5dd;padding:8px 30px;margin:0 10px;color:#ffffff;font-family:Arial!important;font-weight:bold!important;font-size:12px!important}
+.ui-datepicker-calendar th span{font-family:Arial!important;font-size:12px!important;color:#fff!important;font-weight:bold!important;}
+.ui-datepicker-calendar td,.ui-state-default{text-align:center!important;}
+.ui-datepicker-calendar thead{ background:radial-gradient(#ffffff, #53b5dd);}
+.ui-datepicker-calendar tbody{background:#53b5dd;margin-top:10px!important;}
+.ui-icon-circle-triangle-w{color:#fff;width:22px!important;height:22px!important;cursor:pointer}
+.ui-icon-circle-triangle-e{color:#fff;;width:22px!important;height:22px!important;cursor:pointer}
+.ui-icon-circle-triangle-e{color:#fff;width:22px!important;height:22px!important}
+.ui-icon-circle-triangle-w{color:#fff;width:22px!important;height:22px!important}
+.Calendar_bottom{background:url('/Style%20Library/Images/calendar/caltop.png');height:8px;width:213px}
+.Calendar_top{background:url('/Style%20Library/Images/calendar/calbot.png');height:8px;width:213px}
+#smallEventsCalendarDayTemplate,#smallEventsCalendarEventTemplate,#smallCalendarEventTypesTemplate{display:none}
+.dayTemplate{position:absolute;display:none;margin: -2px 0 0 2px;z-index:11111}
+.dayTemplatebody{background:#e0e8f0;width:191px;text-align:left;padding:5px 10px;border-left:1px #4373a6 solid;border-right:1px #4373a6 solid}
+.dayTemplatebody .titledate{font-family:verdana;font-size:12px;color:#005683;font-weight:normal}
+.dayTemplatebody .datedate{font-family:verdana;font-size:11px;color:#666;font-weight:normal}
+.dayTemplatebody a{font-family:verdana!important;font-size:14px!important;font-weight:normal}
+.legendColor{border:solid 1px;width:10px;height:10px}
+.dayTemplate{padding:7px;margin-top:-31px;margin-left:20px;background:url('/Style%20Library/images/calendar/smarrow.png') no-repeat 0 15px}
+.clbigicon{background:url('/Style%20Library/img/calenderico.png');width:100px;height:32px}
+.feicons{text-align:right}
+.IN_CalenderHomePage{background-color:#efefef!important;margin-top:33px}
+div.calenderlink{padding:3px;font:11px verdana;color:#005683!important;text-align:right}
+a.calenderlink{font-size:12px;text-decoration:none!important;color:#005683!important;font-family:verdana!important}
+.colorOfMeeting a{text-align:left}
+.eventTypeItem img{margin-top:2px}
+.eventTypeTitle{float:left;margin-left:5px;font-size:11px!important;font-family:verdana!important;color:#666!important;font-weight:normal!important;width:84%}
+.eventTypeItem{float:left;width:50%}
+.eventTypeItem div{float:left;}
+.ui-state-default, .ui-widget-content .ui-state-default {background:none;}
+.eventdetailstitle,.eventdetails{font-family:verdana;font-size:13px;color:#587ca0;padding:5px}
+.eventdetailstitle2,.eventdetails2{font-family:verdana;font-size:13px;color:#587ca0;padding:5px}
+.eventdetailstitle{font-weight:normal}
+.CallbackCalendar{background-color:#eee!important}
+.datepick-today{background:url('/_layouts/LINKDev.SharePoint.Calendar/CalendarImagesGenerator.ashx?type=filledroundedrectangle&color=%23cccccc') no-repeat center center}
+.smallEventCellBackgroundHome%titleForStyle%{background: url('/_layouts/LINKDev.SharePoint.Calendar/CalendarImagesGenerator.ashx?type=roundedrectangle&color=%encodedcolor%') no-repeat center center}
+
+.datepick-days-cell,.datepick-title-row th{text-align:center;padding:4px}
+.datepick-title-row th{font-weight:normal}
+.datepick-days-cell a{color:#005683;text-decoration:none!important;font-size:11px!important;font-family:verdana!important;cursor:pointer}
+.datepick-days-cell{color:#005683;text-decoration:none!important;font-size:12px!important;font-family:verdana!important}
+.datepick-header{text-align:center}
+.datepick-inline{width:133px!important}
+.datepick-current a{font-weight:normal;font-size:13px!important}
+.datepick-links a{color:#005683!important;text-decoration:none!important;font-size:12px!important;font-family:verdana!important}
+.datepick-links{height:20px;text-align:center}
+.datepick-new-month{margin-right:10px}
+#smallEventsCalendar .datepick{width:230px!important;margin-top:10px}
+.datepick-current-day{background:#bedac3}
+.vrEventTypeColorBox{width:10px;height:10px}
+/* Vacation Calender */
+#smallEventsCalendarVacationRequest .datepick-inline{width:533px!important}
+#smallEventsCalendarVacationRequest .datepick-one-month{float:left;width:160px;background:#e9edf0;margin-right:5px;border:1px #aebfd1 solid}
+#smallEventsCalendarVacationRequest .datepick-days-cell,.datepick-title-row th{text-align:center;padding:3px}
+#smallEventsCalendarVacationRequest .datepick-today{background:none!important;border:1px #89a1bb solid}
+#smallEventsCalendarVacationRequest {width:550px}
+#smallEventsCalendarVacationRequest .datepick-header{height:20px;background:#c2ceda;color:#285785;font-size:11px}
+#smallEventsCalendarVacationRequest .datepick-week-end-cell{background:#d4dde4}
+#smallEventsCalendarVacationRequest .datepick-links div{float:left;width:170px;margin:0}
+#smallEventsCalendarVacationRequest .datepick-new-row{margin-left:20px}
+#smallEventsCalendarVacationRequest .datepick-links{text-align:left;clear:both;height:20px;background:#D4DDE4}
+#smallEventsCalendarVacationRequest .datepick-next{float:right!important;width:12px!important}
+#smallEventsCalendarEventTypesVacationRequest{margin:10px 0 0 20px}
+#smallEventsCalendarVacationRequest .datepick-prev,#smallEventsCalendarVacationRequest .datepick-next{position:relative;margin-top:20px!important}
+#smallEventsCalendarVacationRequest .datepick-links {background:#fff!important}
+#smallEventsCalendarVacationRequest .datepick-current,#smallEventsCalendarVacationRequest .datepick-links div{width:0!important}
+#smallEventsCalendarVacationRequest .PopBGClr {width:100%;height:100%;position:fixed}
+/* Traning Calender */
+#smallEventsCalendarTrainingRequest .datepick-one-month{float:left;width:160px;background:#e9edf0;margin-right:5px;border:1px #aebfd1 solid}
+#smallEventsCalendarTrainingRequest .datepick-days-cell,.datepick-title-row th{text-align:center;padding:3px}
+#smallEventsCalendarTrainingRequest .datepick-today{background:none!important;border:1px #89a1bb solid}
+#smallEventsCalendarTrainingRequest {width:550px}
+#smallEventsCalendarTrainingRequest .datepick-header{height:20px;background:#c2ceda;color:#285785;font-size:11px}
+#smallEventsCalendarTrainingRequest .datepick-week-end-cell{background:#d4dde4}
+#smallEventsCalendarTrainingRequest .datepick-links div{float:left;width:170px;margin:0}
+#smallEventsCalendarTrainingRequest .datepick-new-row{margin-left:20px}
+#smallEventsCalendarTrainingRequest .datepick-links{text-align:left;clear:both;height:20px;background:#D4DDE4}
+#smallEventsCalendarTrainingRequest .datepick-next{float:right!important;width:12px!important}
+#smallEventsCalendarTrainingRequest .datepick-prev,#smallEventsCalendarTrainingRequest .datepick-next{position:relative;margin-top:20px!important}
+#smallEventsCalendarTrainingRequest .datepick-links {background:#fff!important}
+#smallEventsCalendarTrainingRequest .datepick-current,#smallEventsCalendarTrainingRequest .datepick-links div{width:0!important}
+#smallEventsCalendarTrainingRequest .PopBGClr {width:100%;height:100%;position:fixed}
+#smallEventsCalendarTrainingRequest .datepick-inline{width:533px!important}
+/* Tarning external traning */
+#smallEventsCalendarExternalTrainingRequest .datepick-one-month{float:left;width:160px;background:#e9edf0;margin-right:5px;border:1px #aebfd1 solid}
+#smallEventsCalendarExternalTrainingRequest .datepick-days-cell,.datepick-title-row th{text-align:center;padding:3px}
+#smallEventsCalendarExternalTrainingRequest .datepick-today{background:none!important;border:1px #89a1bb solid}
+#smallEventsCalendarExternalTrainingRequest {width:550px}
+#smallEventsCalendarExternalTrainingRequest .datepick-header{height:20px;background:#c2ceda;color:#285785;font-size:11px}
+#smallEventsCalendarExternalTrainingRequest .datepick-week-end-cell{background:#d4dde4}
+#smallEventsCalendarExternalTrainingRequest .datepick-links div{float:left;width:170px;margin:0}
+#smallEventsCalendarExternalTrainingRequest .datepick-new-row{margin-left:20px}
+#smallEventsCalendarExternalTrainingRequest .datepick-links{text-align:left;clear:both;height:20px;background:#D4DDE4}
+#smallEventsCalendarExternalTrainingRequest .datepick-next{float:right!important;width:12px!important}
+#smallEventsCalendarExternalTrainingRequest .datepick-prev,#smallEventsCalendarExternalTrainingRequest .datepick-next{position:relative;margin-top:20px!important}
+#smallEventsCalendarExternalTrainingRequest .datepick-links {background:#fff!important}
+#smallEventsCalendarExternalTrainingRequest .datepick-current,#smallEventsCalendarExternalTrainingRequest .datepick-links div{width:0!important}
+#smallEventsCalendarExternalTrainingRequest .PopBGClr {width:100%;height:100%;position:fixed}
+#smallEventsCalendarExternalTrainingRequest .datepick-inline{width:533px!important}
+#dimmerSmallVacationRequest .datepick-prev{width:18px!important;height:20px!important;border:1px #9cb0c8 solid!important;background:#c2ceda url('')!important}
+#dimmerSmallVacationRequest .datepick-prev img{display:none!important}
+/* calender homepage*/
+#smallEventsCalendar .datepick-prev{float:left}
+#smallEventsCalendar .datepick-current{}
+#smallEventsCalendar .datepick-next{float:right}
+#smallEventsCalendar .datepick-links{width:200px;height:0;margin:10px 0;margin-left:15px}
+#smallEventsCalendar .datepick-inline{width:230px}
+#smallEventsCalendar .datepick-one-month{width:230px}
+#smallEventsCalendar .datepick-header span{font-family:verdana;font-size:16px;color:#214d7a}
+a{outline-style:none} 
+
+
+
+
+/*******************************  Calender Component Layout ***********************************************/
+/* Component containers
+----------------------------------*/
+.ui-widget { font-family:Arial/*{ffDefault}*/; font-size: 12px/*{fsDefault}*/; }
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button { font-family: Verdana,Arial,sans-serif/*{ffDefault}*/; font-size: 1em; }
+.ui-widget-content {  }
+.ui-widget-content a { color: #222222/*{fcContent}*/; }
+.ui-widget-header { border: 1px solid #aaaaaa/*{borderColorHeader}*/; background: #cccccc/*{bgColorHeader}*/ url("../ColorPicker/Calendar/images/ui-bg_highlight-soft_75_cccccc_1x100.png")/*{bgImgUrlHeader}*/ 50%/*{bgHeaderXPos}*/ 50%/*{bgHeaderYPos}*/ repeat-x/*{bgHeaderRepeat}*/; color: #222222/*{fcHeader}*/; font-weight: bold; }
+.ui-widget-header a { color: #222222/*{fcHeader}*/; }
+
+/* Interaction states
+----------------------------------*/
+.ui-state-default, .ui-widget-content .ui-state-default { font-weight: normal/*{fwDefault}*/; color: #ffffff/*{fcDefault}*/; outline: none; }
+.ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited { color: #555555/*{fcDefault}*/; text-decoration: none; outline: none; }
+/*.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus { border: 1px solid #999999{borderColorHover};}
+/*.ui-state-hover a, .ui-state-hover a:hover { color: #212121{fcHover}; text-decoration: none; outline: none; }*/
+.ui-state-active, .ui-widget-content .ui-state-active { font-weight: normal/*{fwDefault}*/; color: #fff!important/*{fcActive}*/; outline: none; }
+.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited { color: #212121/*{fcActive}*/; outline: none; text-decoration: none; }
+
+/* Interaction Cues
+----------------------------------*/
+.ui-state-highlight, .ui-widget-content .ui-state-highlight { background: none repeat scroll 0 0 #959595;color: #363636;padding: 2px;border:1px solid #959595 }
+.ui-state-highlight a, .ui-widget-content .ui-state-highlight a { color: #363636/*{fcHighlight}*/; }
+.ui-state-error, .ui-widget-content .ui-state-error {border: 1px solid #cd0a0a/*{borderColorError}*/; background: #fef1ec/*{bgColorError}*/ url("../ColorPicker/Calendar/images/ui-bg_glass_95_fef1ec_1x400.png")/*{bgImgUrlError}*/ 50%/*{bgErrorXPos}*/ 50%/*{bgErrorYPos}*/ repeat-x/*{bgErrorRepeat}*/; color: #cd0a0a/*{fcError}*/; }
+.ui-state-error a, .ui-widget-content .ui-state-error a { color: #cd0a0a/*{fcError}*/; }
+.ui-state-error-text, .ui-widget-content .ui-state-error-text { color: #cd0a0a/*{fcError}*/; }
+.ui-state-disabled, .ui-widget-content .ui-state-disabled {background-image: none; }
+.ui-priority-primary, .ui-widget-content .ui-priority-primary { font-weight: bold; }
+.ui-priority-secondary, .ui-widget-content .ui-priority-secondary { opacity: .7; filter:Alpha(Opacity=70); font-weight: normal; }
+
+/* Icons
+----------------------------------*/
+
+/* states and images */
+.ui-icon { width: 16px; height: 16px; background-image: url("../ColorPicker/Calendar/images/ui-icons_222222_256x240.png")/*{iconsContent}*/; }
+.ui-widget-content .ui-icon {background-image: url("../ColorPicker/Calendar/images/ui-icons_222222_256x240.png")/*{iconsContent}*/; }
+.ui-widget-header .ui-icon {background-image: url("../ColorPicker/Calendar/images/ui-icons_222222_256x240.png")/*{iconsHeader}*/; }
+.ui-state-default .ui-icon { background-image: url("../ColorPicker/Calendar/images/ui-icons_888888_256x240.png")/*{iconsDefault}*/; }
+/*.ui-state-hover .ui-icon, .ui-state-focus .ui-icon {background-image: url(images/ui-icons_454545_256x240.png){iconsHover}}*/
+.ui-state-active .ui-icon {background-image: url("../ColorPicker/Calendar/images/ui-icons_454545_256x240.png")/*{iconsActive}*/; }
+.ui-state-highlight .ui-icon {background-image: url("../ColorPicker/Calendar/images/ui-icons_2e83ff_256x240.png")/*{iconsHighlight}*/; }
+.ui-state-error .ui-icon, .ui-state-error-text .ui-icon {background-image: url("../ColorPicker/Calendar/images/ui-icons_cd0a0a_256x240.png")/*{iconsError}*/; }
+
+/* positioning */
+.ui-icon-carat-1-n { background-position: 0 0; }
+.ui-icon-carat-1-ne { background-position: -16px 0; }
+.ui-icon-carat-1-e { background-position: -32px 0; }
+.ui-icon-carat-1-se { background-position: -48px 0; }
+.ui-icon-carat-1-s { background-position: -64px 0; }
+.ui-icon-carat-1-sw { background-position: -80px 0; }
+.ui-icon-carat-1-w { background-position: -96px 0; }
+.ui-icon-carat-1-nw { background-position: -112px 0; }
+.ui-icon-carat-2-n-s { background-position: -128px 0; }
+.ui-icon-carat-2-e-w { background-position: -144px 0; }
+.ui-icon-triangle-1-n { background-position: 0 -16px; }
+.ui-icon-triangle-1-ne { background-position: -16px -16px; }
+.ui-icon-triangle-1-e { background-position: -32px -16px; }
+.ui-icon-triangle-1-se { background-position: -48px -16px; }
+.ui-icon-triangle-1-s { background-position: -64px -16px; }
+.ui-icon-triangle-1-sw { background-position: -80px -16px; }
+.ui-icon-triangle-1-w { background-position: -96px -16px; }
+.ui-icon-triangle-1-nw { background-position: -112px -16px; }
+.ui-icon-triangle-2-n-s { background-position: -128px -16px; }
+.ui-icon-triangle-2-e-w { background-position: -144px -16px; }
+.ui-icon-arrow-1-n { background-position: 0 -32px; }
+.ui-icon-arrow-1-ne { background-position: -16px -32px; }
+.ui-icon-arrow-1-e { background-position: -32px -32px; }
+.ui-icon-arrow-1-se { background-position: -48px -32px; }
+.ui-icon-arrow-1-s { background-position: -64px -32px; }
+.ui-icon-arrow-1-sw { background-position: -80px -32px; }
+.ui-icon-arrow-1-w { background-position: -96px -32px; }
+.ui-icon-arrow-1-nw { background-position: -112px -32px; }
+.ui-icon-arrow-2-n-s { background-position: -128px -32px; }
+.ui-icon-arrow-2-ne-sw { background-position: -144px -32px; }
+.ui-icon-arrow-2-e-w { background-position: -160px -32px; }
+.ui-icon-arrow-2-se-nw { background-position: -176px -32px; }
+.ui-icon-arrowstop-1-n { background-position: -192px -32px; }
+.ui-icon-arrowstop-1-e { background-position: -208px -32px; }
+.ui-icon-arrowstop-1-s { background-position: -224px -32px; }
+.ui-icon-arrowstop-1-w { background-position: -240px -32px; }
+.ui-icon-arrowthick-1-n { background-position: 0 -48px; }
+.ui-icon-arrowthick-1-ne { background-position: -16px -48px; }
+.ui-icon-arrowthick-1-e { background-position: -32px -48px; }
+.ui-icon-arrowthick-1-se { background-position: -48px -48px; }
+.ui-icon-arrowthick-1-s { background-position: -64px -48px; }
+.ui-icon-arrowthick-1-sw { background-position: -80px -48px; }
+.ui-icon-arrowthick-1-w { background-position: -96px -48px; }
+.ui-icon-arrowthick-1-nw { background-position: -112px -48px; }
+.ui-icon-arrowthick-2-n-s { background-position: -128px -48px; }
+.ui-icon-arrowthick-2-ne-sw { background-position: -144px -48px; }
+.ui-icon-arrowthick-2-e-w { background-position: -160px -48px; }
+.ui-icon-arrowthick-2-se-nw { background-position: -176px -48px; }
+.ui-icon-arrowthickstop-1-n { background-position: -192px -48px; }
+.ui-icon-arrowthickstop-1-e { background-position: -208px -48px; }
+.ui-icon-arrowthickstop-1-s { background-position: -224px -48px; }
+.ui-icon-arrowthickstop-1-w { background-position: -240px -48px; }
+.ui-icon-arrowreturnthick-1-w { background-position: 0 -64px; }
+.ui-icon-arrowreturnthick-1-n { background-position: -16px -64px; }
+.ui-icon-arrowreturnthick-1-e { background-position: -32px -64px; }
+.ui-icon-arrowreturnthick-1-s { background-position: -48px -64px; }
+.ui-icon-arrowreturn-1-w { background-position: -64px -64px; }
+.ui-icon-arrowreturn-1-n { background-position: -80px -64px; }
+.ui-icon-arrowreturn-1-e { background-position: -96px -64px; }
+.ui-icon-arrowreturn-1-s { background-position: -112px -64px; }
+.ui-icon-arrowrefresh-1-w { background-position: -128px -64px; }
+.ui-icon-arrowrefresh-1-n { background-position: -144px -64px; }
+.ui-icon-arrowrefresh-1-e { background-position: -160px -64px; }
+.ui-icon-arrowrefresh-1-s { background-position: -176px -64px; }
+.ui-icon-arrow-4 { background-position: 0 -80px; }
+.ui-icon-arrow-4-diag { background-position: -16px -80px; }
+.ui-icon-extlink { background-position: -32px -80px; }
+.ui-icon-newwin { background-position: -48px -80px; }
+.ui-icon-refresh { background-position: -64px -80px; }
+.ui-icon-shuffle { background-position: -80px -80px; }
+.ui-icon-transfer-e-w { background-position: -96px -80px; }
+.ui-icon-transferthick-e-w { background-position: -112px -80px; }
+.ui-icon-folder-collapsed { background-position: 0 -96px; }
+.ui-icon-folder-open { background-position: -16px -96px; }
+.ui-icon-document { background-position: -32px -96px; }
+.ui-icon-document-b { background-position: -48px -96px; }
+.ui-icon-note { background-position: -64px -96px; }
+.ui-icon-mail-closed { background-position: -80px -96px; }
+.ui-icon-mail-open { background-position: -96px -96px; }
+.ui-icon-suitcase { background-position: -112px -96px; }
+.ui-icon-comment { background-position: -128px -96px; }
+.ui-icon-person { background-position: -144px -96px; }
+.ui-icon-print { background-position: -160px -96px; }
+.ui-icon-trash { background-position: -176px -96px; }
+.ui-icon-locked { background-position: -192px -96px; }
+.ui-icon-unlocked { background-position: -208px -96px; }
+.ui-icon-bookmark { background-position: -224px -96px; }
+.ui-icon-tag { background-position: -240px -96px; }
+.ui-icon-home { background-position: 0 -112px; }
+.ui-icon-flag { background-position: -16px -112px; }
+.ui-icon-calendar { background-position: -32px -112px; }
+.ui-icon-cart { background-position: -48px -112px; }
+.ui-icon-pencil { background-position: -64px -112px; }
+.ui-icon-clock { background-position: -80px -112px; }
+.ui-icon-disk { background-position: -96px -112px; }
+.ui-icon-calculator { background-position: -112px -112px; }
+.ui-icon-zoomin { background-position: -128px -112px; }
+.ui-icon-zoomout { background-position: -144px -112px; }
+.ui-icon-search { background-position: -160px -112px; }
+.ui-icon-wrench { background-position: -176px -112px; }
+.ui-icon-gear { background-position: -192px -112px; }
+.ui-icon-heart { background-position: -208px -112px; }
+.ui-icon-star { background-position: -224px -112px; }
+.ui-icon-link { background-position: -240px -112px; }
+.ui-icon-cancel { background-position: 0 -128px; }
+.ui-icon-plus { background-position: -16px -128px; }
+.ui-icon-plusthick { background-position: -32px -128px; }
+.ui-icon-minus { background-position: -48px -128px; }
+.ui-icon-minusthick { background-position: -64px -128px; }
+.ui-icon-close { background-position: -80px -128px; }
+.ui-icon-closethick { background-position: -96px -128px; }
+.ui-icon-key { background-position: -112px -128px; }
+.ui-icon-lightbulb { background-position: -128px -128px; }
+.ui-icon-scissors { background-position: -144px -128px; }
+.ui-icon-clipboard { background-position: -160px -128px; }
+.ui-icon-copy { background-position: -176px -128px; }
+.ui-icon-contact { background-position: -192px -128px; }
+.ui-icon-image { background-position: -208px -128px; }
+.ui-icon-video { background-position: -224px -128px; }
+.ui-icon-script { background-position: -240px -128px; }
+.ui-icon-alert { background-position: 0 -144px; }
+.ui-icon-info { background-position: -16px -144px; }
+.ui-icon-notice { background-position: -32px -144px; }
+.ui-icon-help { background-position: -48px -144px; }
+.ui-icon-check { background-position: -64px -144px; }
+.ui-icon-bullet { background-position: -80px -144px; }
+.ui-icon-radio-off { background-position: -96px -144px; }
+.ui-icon-radio-on { background-position: -112px -144px; }
+.ui-icon-pin-w { background-position: -128px -144px; }
+.ui-icon-pin-s { background-position: -144px -144px; }
+.ui-icon-play { background-position: 0 -160px; }
+.ui-icon-pause { background-position: -16px -160px; }
+.ui-icon-seek-next { background-position: -32px -160px; }
+.ui-icon-seek-prev { background-position: -48px -160px; }
+.ui-icon-seek-end { background-position: -64px -160px; }
+.ui-icon-seek-first { background-position: -80px -160px; }
+.ui-icon-stop { background-position: -96px -160px; }
+.ui-icon-eject { background-position: -112px -160px; }
+.ui-icon-volume-off { background-position: -128px -160px; }
+.ui-icon-volume-on { background-position: -144px -160px; }
+.ui-icon-power { background-position: 0 -176px; }
+.ui-icon-signal-diag { background-position: -16px -176px; }
+.ui-icon-signal { background-position: -32px -176px; }
+.ui-icon-battery-0 { background-position: -48px -176px; }
+.ui-icon-battery-1 { background-position: -64px -176px; }
+.ui-icon-battery-2 { background-position: -80px -176px; }
+.ui-icon-battery-3 { background-position: -96px -176px; }
+.ui-icon-circle-plus { background-position: 0 -192px; }
+.ui-icon-circle-minus { background-position: -16px -192px; }
+.ui-icon-circle-close { background-position: -32px -192px; }
+.ui-icon-circle-triangle-e { }
+.ui-icon-circle-triangle-s { }
+.ui-icon-circle-triangle-w {  }
+.ui-icon-circle-triangle-n { background-position: -96px -192px; }
+.ui-icon-circle-arrow-e { background-position: -112px -192px; }
+.ui-icon-circle-arrow-s { background-position: -128px -192px; }
+.ui-icon-circle-arrow-w { background-position: -144px -192px; }
+.ui-icon-circle-arrow-n { background-position: -160px -192px; }
+.ui-icon-circle-zoomin { background-position: -176px -192px; }
+.ui-icon-circle-zoomout { background-position: -192px -192px; }
+.ui-icon-circle-check { background-position: -208px -192px; }
+.ui-icon-circlesmall-plus { background-position: 0 -208px; }
+.ui-icon-circlesmall-minus { background-position: -16px -208px; }
+.ui-icon-circlesmall-close { background-position: -32px -208px; }
+.ui-icon-squaresmall-plus { background-position: -48px -208px; }
+.ui-icon-squaresmall-minus { background-position: -64px -208px; }
+.ui-icon-squaresmall-close { background-position: -80px -208px; }
+.ui-icon-grip-dotted-vertical { background-position: 0 -224px; }
+.ui-icon-grip-dotted-horizontal { background-position: -16px -224px; }
+.ui-icon-grip-solid-vertical { background-position: -32px -224px; }
+.ui-icon-grip-solid-horizontal { background-position: -48px -224px; }
+.ui-icon-gripsmall-diagonal-se { background-position: -64px -224px; }
+.ui-icon-grip-diagonal-se { background-position: -80px -224px; }
+
+
+/* Misc visuals
+----------------------------------*/
+
+/* Corner radius */
+.ui-corner-tl { -moz-border-radius-topleft: 4px/*{cornerRadius}*/; -webkit-border-top-left-radius: 4px/*{cornerRadius}*/; }
+.ui-corner-tr { -moz-border-radius-topright: 4px/*{cornerRadius}*/; -webkit-border-top-right-radius: 4px/*{cornerRadius}*/; }
+.ui-corner-bl { -moz-border-radius-bottomleft: 4px/*{cornerRadius}*/; -webkit-border-bottom-left-radius: 4px/*{cornerRadius}*/; }
+.ui-corner-br { -moz-border-radius-bottomright: 4px/*{cornerRadius}*/; -webkit-border-bottom-right-radius: 4px/*{cornerRadius}*/; }
+.ui-corner-top { -moz-border-radius-topleft: 4px/*{cornerRadius}*/; -webkit-border-top-left-radius: 4px/*{cornerRadius}*/; -moz-border-radius-topright: 4px/*{cornerRadius}*/; -webkit-border-top-right-radius: 4px/*{cornerRadius}*/; }
+.ui-corner-bottom { -moz-border-radius-bottomleft: 4px/*{cornerRadius}*/; -webkit-border-bottom-left-radius: 4px/*{cornerRadius}*/; -moz-border-radius-bottomright: 4px/*{cornerRadius}*/; -webkit-border-bottom-right-radius: 4px/*{cornerRadius}*/; }
+.ui-corner-right {  -moz-border-radius-topright: 4px/*{cornerRadius}*/; -webkit-border-top-right-radius: 4px/*{cornerRadius}*/; -moz-border-radius-bottomright: 4px/*{cornerRadius}*/; -webkit-border-bottom-right-radius: 4px/*{cornerRadius}*/; }
+.ui-corner-left { -moz-border-radius-topleft: 4px/*{cornerRadius}*/; -webkit-border-top-left-radius: 4px/*{cornerRadius}*/; -moz-border-radius-bottomleft: 4px/*{cornerRadius}*/; -webkit-border-bottom-left-radius: 4px/*{cornerRadius}*/; }
+.ui-corner-all { -moz-border-radius: 4px/*{cornerRadius}*/; -webkit-border-radius: 4px/*{cornerRadius}*/; }
+
+/* Overlays */
+.ui-widget-overlay { background: #aaaaaa/*{bgColorOverlay}*/ url("../ColorPicker/Calendar/images/ui-bg_flat_0_aaaaaa_40x100.png")/*{bgImgUrlOverlay}*/ 50%/*{bgOverlayXPos}*/ 50%/*{bgOverlayYPos}*/ repeat-x/*{bgOverlayRepeat}*/; opacity: .3;filter:Alpha(Opacity=30)/*{opacityOverlay}*/; }
+.ui-widget-shadow { margin: -8px/*{offsetTopShadow}*/ 0 0 -8px/*{offsetLeftShadow}*/; padding: 8px/*{thicknessShadow}*/; background: #aaaaaa/*{bgColorShadow}*/ url("../ColorPicker/Calendar/images/ui-bg_flat_0_aaaaaa_40x100.png")/*{bgImgUrlShadow}*/ 50%/*{bgShadowXPos}*/ 50%/*{bgShadowYPos}*/ repeat-x/*{bgShadowRepeat}*/; opacity: .3;filter:Alpha(Opacity=30)/*{opacityShadow}*/; -moz-border-radius: 8px/*{cornerRadiusShadow}*/; -webkit-border-radius: 8px/*{cornerRadiusShadow}*/; }
+
+/*
+ * FullCalendar v1.4.1 Stylesheet
+ *
+ * Feel free to edit this file to customize the look of FullCalendar.
+ * When upgrading to newer versions, please upgrade this file as well,
+ * porting over any customizations afterwards.
+ *
+ */
+ 
+    #bigCalendarEventTypesTemplate
+    {
+        display: none;
+    }
+    #bigCalendarStyles
+    {
+        display: none;
+    }
+    #bigCalendarRenderedStyles
+    {
+        display: none;
+    }
+    .bigEventTitle
+    {
+        float: left;
+        margin: 1px 5px 5px 3px;
+    }
+    .bigLegendColorBox
+    {
+        float: left;
+    }
+    .bigLegend
+    {
+        margin: 10px 0;
+    }
+    #dimmerBig
+    {
+        position: absolute;
+        background: url('../../images/calendar/loadingbg.png') repeat 0 0;
+        color: White;
+        z-index: 100;
+        display: none;
+    }
+ 
+   .bigEventType__title__
+    {
+    }
+        
+.fc,
+.fc .fc-header,
+.fc .fc-content {
+	font-size: 1em;
+	width:690px;
+	margin-top:10px
+	}
+	
+.fc {
+	direction: ltr;
+	}
+	
+.fc table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	}
+	
+.fc td, .fc th {
+	padding: 0;
+	vertical-align: top;
+	}
+/* Header
+------------------------------------------------------------------------*/
+	
+table.fc-header {
+	width: 100%;
+	}
+	
+.fc-header-left {
+	width: 25%;
+	}
+	
+.fc-header-left table {
+	float: left;
+	}
+	
+.fc-header-center {
+	width: 50%;
+	}
+	
+.fc-header-center table {
+	margin: 0 auto;
+	}
+	
+.fc-header-right {
+	width: 25%;
+	}
+	
+.fc-header-right table {
+	float: right;
+	}
+	
+.fc-header-title {
+	margin-top: 0;
+	white-space: nowrap;
+	color:#005683
+	}
+	
+.fc-header-space {
+	padding-left: 10px;
+	}
+	
+/* right-to-left */
+
+.fc-rtl .fc-header-title {
+	direction: rtl;
+	}
+
+
+
+/* Buttons
+------------------------------------------------------------------------*/
+.ui-datepicker-prev,.ui-datepicker-next{background:none!important;margin-top:20px;}
+.fc-header .fc-state-default,
+.fc-header .ui-state-default {
+	margin-bottom: 1em;
+	cursor: pointer;
+	}
+	.ui-datepicker-prev{
+	/*margin-left:70px;*/
+	
+	
+}
+ui-datepicker-next{
+		/*margin-left:50px;!important*/
+}
+	
+.fc-header .fc-state-default {
+	border-width: 1px 0;
+	padding: 0 1px;
+	}
+	
+.fc-header .fc-state-default,
+.fc-header .fc-state-default a {
+	border-style: solid;
+	}
+	
+.fc-header .fc-state-default a {
+	display: block;
+	position: relative;
+	border-width: 0 1px;
+	margin: 0 -1px;
+	width: 100%;
+	text-decoration: none;
+	}
+	
+.fc-header .fc-state-default span {
+	display: block;
+	border-style: solid;
+	border-width: 1px 0 1px 1px;
+	padding: 3px 0;
+	}
+	
+.fc-header .ui-state-default {
+	padding: 4px 6px;
+	}
+	
+.fc-header .fc-state-default span,
+.fc-header .ui-state-default span {
+	white-space: nowrap;
+	}
+	
+/* for adjacent buttons */
+	
+.fc-header .fc-no-right {
+	padding-right: 0;
+	}
+	
+.fc-header .fc-no-right a {
+	margin-right: 0;
+	border-right: 0;
+	}
+	
+.fc-header .ui-no-right {
+	border-right: 0;
+	}
+	
+/* for fake rounded corners */
+	
+.fc-header .fc-corner-left {
+	margin-left: 1px;
+	padding-left: 0;
+	}
+	
+.fc-header .fc-corner-right {
+	margin-right: 1px;
+	padding-right: 0;
+	}
+	
+/* DEFAULT button COLORS */
+	
+.fc-header .fc-state-default,
+.fc-header .fc-state-default a {
+	border-color: #98b4d1; /* outer border */
+	background:#d3dae0;
+	color: #005683;
+	text-align:center;
+	width:45px
+	}
+
+.fc-header .fc-state-default span {
+	border-color: #fff #fff #d1d1d1; /* inner border */
+	/*background: #e8e8e8;*/
+	}
+	
+/* PRESSED button COLORS (down and active) */
+	
+.fc-header .fc-state-active a {
+	color: #fff;
+	}
+	
+.fc-header .fc-state-down span,
+.fc-header .fc-state-active span {
+	background: #888;
+	border-color: #808080 #808080 #909090; /* inner border */
+	}
+	
+/* DISABLED button COLORS */
+	
+.fc-header .fc-state-disabled a {
+	color: #999;
+	}
+	
+.fc-header .fc-state-disabled,
+.fc-header .fc-state-disabled a {
+	border-color: #ccc; /* outer border */
+	}
+	
+.fc-header .fc-state-disabled span {
+	border-color: #fff #fff #f0f0f0; /* inner border */
+	background: #f0f0f0;
+	}
+	
+	
+	
+/* Content Area & Global Cell Styles
+------------------------------------------------------------------------*/
+	
+.fc-widget-content {
+	border: 1px solid #98b4d1; /* outer border color */
+	}
+	
+.fc-content {
+	clear: both;
+	}
+	
+.fc-content .fc-state-default {
+	border-style: solid;
+	border-color: #98b4d1; /* outer border */
+	background:#d3dae0;color:#005683
+	}
+	
+.fc-content .fc-state-highlight { /* today */
+	background: #efefef;
+	}
+	
+.fc-content .fc-not-today {
+	background: none;
+	}
+	
+.fc-cell-overlay { /* semi-transparent rectangle while dragging */
+	background: #9cf;
+	opacity: .2;
+	filter: alpha(opacity=20); /* for IE */
+	}
+	
+.fc-view { /* prevents dragging outside of widget */
+	width: 100%;
+	overflow: hidden;
+	}
+	
+	
+	
+/* Global Event Styles
+------------------------------------------------------------------------*/
+
+.fc-event,
+.fc-agenda .fc-event-time,
+.fc-event a {
+	border-style: solid; 
+	border-color: #b9b9b9;     /* default BORDER color (probably the same as background-color) */
+	/*background-color: #efefef;*/ /* default BACKGROUND color */
+	color: #fff;            /* default TEXT color */
+	}
+	
+	/* Use the 'className' CalEvent property and the following
+	 * example CSS to change event color on a per-event basis:
+	 *
+	 * .myclass,
+	 * .fc-agenda .myclass .fc-event-time,
+	 * .myclass a {
+	 *     background-color: black;
+	 *     border-color: black;
+	 *     color: red;
+	 *     }
+	 */
+	 
+.fc-event {
+	text-align: left;
+	}
+	
+.fc-event a {
+	overflow: hidden;
+	font-size: .85em;
+	text-decoration: none;
+	cursor: pointer;
+	}
+	
+.fc-event-editable {
+	cursor: pointer;
+	}
+	
+.fc-event-time,
+.fc-event-title {
+	padding: 0 1px;
+	color:#98b4d1
+	}
+	
+/* for fake rounded corners */
+
+.fc-event a {
+	display: block;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	}
+	
+/* right-to-left */
+
+.fc-rtl .fc-event a {
+	text-align: right;
+	}
+	
+/* resizable */
+	
+.fc .ui-resizable-handle {
+	display: block;
+	position: absolute;
+	z-index: 99999;
+	border: 0 !important; /* important overrides pre jquery ui 1.7 styles */
+	background: url(data:image/gif;base64,AAAA) !important; /* hover fix for IE */
+	}
+	
+	
+	
+/* Horizontal Events
+------------------------------------------------------------------------*/
+
+.fc-event-hori {
+	border-width: 1px 0;
+	margin-bottom: 1px;
+	}
+	
+.fc-event-hori a {
+	border-width: 0;
+	}
+	
+/* for fake rounded corners */
+	
+.fc-content .fc-corner-left {
+	margin-left: 1px;
+	}
+	
+.fc-content .fc-corner-left a {
+	margin-left: -1px;
+	border-left-width: 1px;
+	}
+	
+.fc-content .fc-corner-right {
+	margin-right: 1px;
+	}
+	
+.fc-content .fc-corner-right a {
+	margin-right: -1px;
+	border-right-width: 1px;
+	}
+	
+/* resizable */
+	
+.fc-event-hori .ui-resizable-e {
+	top: 0           !important; /* importants override pre jquery ui 1.7 styles */
+	right: -3px      !important;
+	width: 7px       !important;
+	height: 100%     !important;
+	cursor: e-resize;
+	}
+	
+.fc-event-hori .ui-resizable-w {
+	top: 0           !important;
+	left: -3px       !important;
+	width: 7px       !important;
+	height: 100%     !important;
+	cursor: w-resize;
+	}
+	
+.fc-event-hori .ui-resizable-handle {
+	_padding-bottom: 14px; /* IE6 had 0 height */
+	}
+	
+	
+/* Month View, Basic Week View, Basic Day View
+------------------------------------------------------------------------*/
+
+.fc-grid table {
+	width: 100%;
+	}
+	
+.fc .fc-grid th {
+	border-width: 0 0 0 1px;
+	text-align: center;
+	}
+	
+.fc .fc-grid td {
+	border-width: 1px 0 0 1px;
+	}
+	
+.fc-grid th.fc-leftmost,
+.fc-grid td.fc-leftmost {
+	border-left: 0;
+	}
+	
+.fc-grid .fc-day-number {
+	float: right;
+	padding: 0 2px;
+	border-left:1px #98b4d1 solid;
+	border-bottom:1px #98b4d1 solid;
+	background-color:#d3dae0;width:15px
+	;text-align:center
+	}
+	
+.fc-grid .fc-other-month .fc-day-number {
+	opacity: 0.3;
+	filter: alpha(opacity=30); /* for IE */
+	/* opacity with small font can sometimes look too faded
+	   might want to set the 'color' property instead
+	   making day-numbers bold also fixes the problem */
+	}
+	
+.fc-grid .fc-day-content {
+	clear: both;
+	padding: 2px 2px 0; /* distance between events and day edges */
+	}
+	
+/* event styles */
+	
+.fc-grid .fc-event-time {
+	font-weight: bold;
+	}
+	
+/* right-to-left */
+
+.fc-rtl .fc-grid {
+	direction: rtl;
+	}
+	
+.fc-rtl .fc-grid .fc-day-number {
+	float: left;
+	}
+	
+.fc-rtl .fc-grid .fc-event-time {
+	float: right;
+	}
+	
+/* Agenda Week View, Agenda Day View
+------------------------------------------------------------------------*/
+
+.fc .fc-agenda th,
+.fc .fc-agenda td {
+	border-width: 1px 0 0 1px;
+	}
+	
+.fc .fc-agenda .fc-leftmost {
+	border-left: 0;
+	}
+	
+.fc-agenda tr.fc-first th,
+.fc-agenda tr.fc-first td {
+	border-top: 0;
+	}
+	
+.fc-agenda-head tr.fc-last th {
+	border-bottom-width: 1px;
+	}
+	
+.fc .fc-agenda-head td,
+.fc .fc-agenda-body td {
+	background: none;
+	}
+	
+.fc-agenda-head th {
+	text-align: center;
+	}
+	
+/* the time axis running down the left side */
+	
+.fc-agenda .fc-axis {
+	width: 50px;
+	padding: 0 4px;
+	vertical-align: middle;
+	white-space: nowrap;
+	text-align: right;
+	font-weight: normal;
+	}
+	
+/* all-day event cells at top */
+	
+.fc-agenda-head tr.fc-all-day th {
+	height: 35px;
+	}
+	
+.fc-agenda-head td {
+	padding-bottom: 10px;
+	}
+	
+.fc .fc-divider div {
+	font-size: 1px; /* for IE6/7 */
+	height: 2px;
+	}
+	
+.fc .fc-divider .fc-state-default {
+	background: #d3dae0; /* color for divider between all-day and time-slot events */
+	}
+
+/* body styles */
+	
+.fc .fc-agenda-body td div {
+	height: 20px; /* slot height */
+	}
+	
+.fc .fc-agenda-body tr.fc-minor th,
+.fc .fc-agenda-body tr.fc-minor td {
+	border-top-style: dotted;
+	}
+	
+.fc-agenda .fc-day-content {
+	padding: 2px 2px 0; /* distance between events and day edges */
+	}
+	
+
+
+/* Vertical Events
+------------------------------------------------------------------------*/
+
+.fc-event-vert {
+	border-width: 0 1px;
+	}
+	
+.fc-event-vert a {
+	border-width: 0;
+	}
+	
+/* for fake rounded corners */
+	
+.fc-content .fc-corner-top {
+	margin-top: 1px;
+	}
+	
+.fc-content .fc-corner-top a {
+	margin-top: -1px;
+	border-top-width: 1px;
+	}
+	
+.fc-content .fc-corner-bottom {
+	margin-bottom: 1px;
+	}
+	
+.fc-content .fc-corner-bottom a {
+	margin-bottom: -1px;
+	border-bottom-width: 1px;
+	}
+/* event content */
+.fc-event-vert span {display: block;position: relative;z-index: 2;}
+.fc-event-vert span.fc-event-time {white-space: nowrap;_white-space: normal;overflow: hidden;border: 0;font-size: 10px;}	
+.fc-event-vert span.fc-event-title {line-height: 13px;}
+.fc-event-vert span.fc-event-bg { /* makes the event lighter w/ a semi-transparent overlay  */position: absolute;z-index: 1;top: 0;left: 0;width: 100%;height: 100%;background: #fff;opacity: .3;filter: alpha(opacity=30); /* for IE */}
+	
+/* resizable */
+	
+.fc-event-vert .ui-resizable-s {bottom: 0!important; /* importants override pre jquery ui 1.7 styles */width: 100%      !important;height: 8px      !important;line-height: 8px !important;font-size: 11px  !important;font-family: monospace;text-align: center;cursor: s-resize;}
+.ui-datepicker-week-end .ui-state-default{font-size:12px!important;color:#c7c7c7;}
+
+/*Editable classes to adjust the small calendars on Vacatio Request page
+#smallEventsCalendarVacationRequest,#smallEventsCalendarVacationRequest .ui-datepicker {width:570px!important;background-color:transparent!important}
+#smallEventsCalendarVacationRequest .ui-datepicker-group-first{margin-left:20px!important}
+#smallEventsCalendarVacationRequest .ui-datepicker-group-middle{margin:0px 5px 0px 5px!important}
+
+#smallEventsCalendarVacationRequest .ui-datepicker-group-first,#smallEventsCalendarVacationRequest .ui-datepicker-group-middle,#smallEventsCalendarVacationRequest .ui-datepicker-group-last{float:left!important;width:165px!important;background-color:#e9edf0!important;border:1px solid #ced8e2!important;height:190px!important;}
+#smallEventsCalendarVacationRequest .ui-icon-circle-triangle-w,#smallEventsCalendarVacationRequest .ui-icon-circle-triangle-e{width:18px!important;height:20px!important}
+#smallEventsCalendarVacationRequest .ui-icon-circle-triangle-w{background:url('/Style Library/Images/RefImages/LftSml.gif')no-repeat!important}
+#smallEventsCalendarVacationRequest .ui-icon-circle-triangle-e{background:url('/Style Library/Images/RefImages/RghtSml.gif')no-repeat!important}
+#smallEventsCalendarVacationRequest .ui-widget-header{background:none!important;border:nonoe!important;margin:0px!important}
+#smallEventsCalendarVacationRequest .ui-datepicker-header{padding:0px!important}
+#smallEventsCalendarVacationRequest .ui-datepicker-next span{left:130%!important;top:30%!important}
+#smallEventsCalendarVacationRequest .ui-datepicker-prev span{left:-75%!important;top:30%!important}
+#smallEventsCalendarVacationRequest .ui-datepicker-title{font-weight:bold!important;font-size:12px!important}
+#smallEventsCalendarVacationRequest .ui-datepicker-prev-hover span{left:-70%!important;top:30%!important}
+#smallEventsCalendarVacationRequest table.ui-datepicker-calendar tr td.ui-datepicker-unselectable{padding:0px!important}
+#smallEventsCalendarVacationRequest .ui-datepicker-current-day{background:none!important}
+#smallEventsCalendar div.datepick-header {	margin-top:-18px!important}*/
+
+
+#dimmerOrgCalendar{display: none;position: absolute;margin: 70px;}
+.DayHeaderStyle{padding: 5px;border-bottom: 1px solid #C6C6C6;border-top: 1px solid #C6C6C6;text-align: center;}
+.TitleStyle{margin: 5px 2px 5px 3px;}
+.TitleStyle td{text-align: center;}
+.otherMonth{visibility: hidden !important;}
+.otherMonth a{visibility: hidden !important;}
+.PrevMonth {background:url('../../images/calendar/leftarrow.gif') no-repeat 0 0 ;width:25px;height:25px;display:inline-block}
+.NextMonth {background:url('../../images/calendar/rightarrow.gif') no-repeat 0 0 ;width:25px;height:25px;display:inline-block}
+a.ui-state-default {display:block;width:14px;height:15px;padding:2px;}
+a.ui-datepicker-event{}
+/*****************************pop up******************/
+.ui-datepicker-calendar td{position:relative;}
+.eventPopUpDiv{  position:absolute;top:18px;z-index:101;width:150px;color:#555}
+.eventPopUpDivbg{background-color:White;border:3px solid #9f9f9f;margin-top:6px;padding:8px;;padding-bottom:0px;text-align:left}
+h3.calHead{font-family:Arial;font-weight:bold;font-size:12px;}
+.divCalendarLI{padding-bottom:8px}
+.divCalendarLI .events-dates{margin-left:5px;}
+.divCalendarLI .events-dates,.divCalendarLI .events-dates span{font-size:11px;}

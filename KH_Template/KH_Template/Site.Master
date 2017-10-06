@@ -1,0 +1,92 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="KH_Template.Site" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Alpha</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.dropotron.min.js"></script>
+		<script src="js/jquery.scrollgress.min.js"></script>
+	
+     <link href="Components/Table/css/jtable.css" rel="stylesheet" type="text/css" />
+    <link href="Components/Table/css/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <script src="Components/Table/js/modernizr-2.6.2.js" type="text/javascript"></script>
+    <script src="Components/Table/js/jquery-ui-1.9.2.min.js" type="text/javascript"></script>
+     <!-- A helper library for JSON serialization -->
+    <script type="text/javascript" src="Components/Table/js/external/json2.js"></script>
+    <!-- Core jTable script file -->
+    <script type="text/javascript" src="Components/Table/js/jquery.jtable.js"></script>
+    <!-- ASP.NET Web Forms extension for jTable --> 
+    <script type="text/javascript" src="Components/Table/js/extensions/jquery.jtable.aspnetpagemethods.js"></script>
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+    <script  type="text/javascript" src="Components/Calendar/js/jquery.datetimepicker.min.js"></script>
+<link    href="Components/Calendar/css/jquery.datetimepicker.css" rel="stylesheet" type="text/css">
+    <link href="css/skel.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/style-wide.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+		
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+         <!-- Header -->
+			<header id="header" class="skel-layers-fixed">
+				<h1><a href="index.html">Alpha</a> Khaled</h1>
+				<nav id="nav">
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li>
+							<a href="" class="icon fa-angle-down">Layouts</a>
+							<ul>
+								<li><a href="generic.html">Generic</a></li>
+								<li><a href="contact.html">Contact</a></li>
+								<li><a href="elements.html">Elements</a></li>
+								<li>
+									<a href="">Submenu</a>
+									<ul>
+										<li><a href="#">Option One</a></li>
+										<li><a href="#">Option Two</a></li>
+										<li><a href="#">Option Three</a></li>
+										<li><a href="#">Option Four</a></li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li><a href="#" class="button">Sign Up</a></li>
+					</ul>
+				</nav>
+			</header>
+        <section id="main" class="container">
+				
+				
+					<asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+
+                     </asp:ContentPlaceHolder>
+			</section>
+            
+    
+        <!-- Footer -->
+			<footer id="footer">
+				<ul class="icons">
+					<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+					<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+					<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+					<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
+					<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+					<li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; . All rights reserved.</li><li>Design: Khaled</li>
+				</ul>
+			</footer>
+    
+    </form>
+
+</body>
+</html>
